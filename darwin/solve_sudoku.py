@@ -20,9 +20,8 @@ def solve_sudoku(   population_size,
                     log=False, 
                     log_name=None, 
                     generations_earlystop= None
-                    ):
+                ):
     
-    #
     time_start = time.time()
     
     #mutation_rate_start and help are needed for the second early_stopping variant in which we increase the mutation rate for a couple of epochs in order
@@ -73,7 +72,6 @@ def solve_sudoku(   population_size,
         if p.best_fitness == 0:
             return p
         
-
         #early_stop version1
         #this version allows to early stop if the best fitness doesnt decrease anymore
         #this was active during random search
@@ -88,7 +86,7 @@ def solve_sudoku(   population_size,
             if (p.best_fitness == best_fitness_history[-generations_earlystop]) & (help <= 5):
                 mutation_rate = 0.25
                 help += 1
-            
+              
             if (help > 5) :
                 mutation_rate = mutation_rate_start
         
