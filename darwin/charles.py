@@ -3,8 +3,6 @@ import copy
 from darwin.sudoku import columns_to_rows, boxes_to_rows
 random.seed(55)
 
-    
-
 class Individual:
     def __init__(self, sudoku):
         
@@ -12,8 +10,6 @@ class Individual:
         self.representation = self.fill_template()
         self.fitness = self.get_fitness()
         
-    
-    
     def fill_template(self):
         #to generate a representation for each individual, we fill the 0s of the template,
         # which are the not appearing numbers in the fixed indices, from the sudoku object with random numbers from the possible_entries
@@ -43,8 +39,6 @@ class Individual:
 
         self.sudoku.fixed_indices = self.sudoku.get_fixed_indices() 
         self.sudoku.possible_entries = self.sudoku.get_possible_entries()
-        
-        
         filled_template = copy.deepcopy(self.sudoku.template)
 
         for i in range(self.sudoku.size):
@@ -53,8 +47,6 @@ class Individual:
 
                     filled_template[i][j] = random.choice(self.sudoku.possible_entries[i][j])
 
-        
-        
         return filled_template
     
     
@@ -75,14 +67,12 @@ class Individual:
                 else:
                     number_counts[number] = 1
             
-            
             #then we return the difference between the length of the list and the length of the keys of the dictionary which is the number of duplicates
             return (len(list)-len(number_counts.keys()))
         
         
         def count_row_duplicates(grid):
             #then we define a function that iterates over the grid, gets the duplicates within each row and sums them up
-            
             duplicates = 0
             for row in grid:
                 duplicates += count_duplicates(row)
@@ -101,9 +91,6 @@ class Individual:
 
         #finally we return the sum of the duplicates for rows, columns and boxes
         return  count_row_duplicates(self.representation) + count_column_duplicates(self.representation) + count_box_duplicates(self.representation, self.sudoku.box_size)
-        
-        
-
 
 class Population:
 
