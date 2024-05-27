@@ -14,8 +14,8 @@ def evolve( population,
             crossover_rate = None,
             crossover_method = None,
             mutation_rate = None,
-            mutation_method = None,
-            ):
+            mutation_method = None
+          ):
     
     #we start with selecting the parents
     population.parents = select_parents(population, selection_method=selection_method, tournament_size=tournament_size, T=T)
