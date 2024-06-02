@@ -1,5 +1,5 @@
-# 3 4 5 7 9
-
+# https://sudokutodo.com/cat/sudoku/hard/12x12-sudoku-hard
+# https://sekika.github.io/kaidoku/book
 easy = [
     # Level 3 No.1
     [
